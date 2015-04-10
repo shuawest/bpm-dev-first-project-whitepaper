@@ -1,6 +1,8 @@
 
 # Starting the Process via REST
 
+curl -X POST -u {bpmuser}:{bpmpass} http://{bpm host and port}/business-central/rest/runtime/{groupId}:{artifactId}:{version}/process/{processId}/start
+
 ```
 curl -X POST \
  -u 'testuser':'RedHat1!' \
@@ -8,6 +10,8 @@ curl -X POST \
 ```
 
 # Uploading a maven Jar via a script
+
+curl -X POST -u {bpmuser}:{bpmpass} -F filedata=@{file to upload} http://{bpm host and port}/maven2/{groupId with slashes}/{jar filename}
 
 ```
 curl -X POST \
@@ -17,6 +21,8 @@ curl -X POST \
 ```
 
 # Uploading an Ant/Eclipse Jar via a script
+
+curl -X POST -u {bpmuser}:{bpmpass} -F groupId={groupId} -F artifactId={artifactId} -F versionId={version} \ -F filedata=@{file to upload} http://{bpm host and port}/maven2/{groupId with slashes}/{jar filename}
 
 ```
 curl -X POST \
@@ -30,6 +36,8 @@ curl -X POST \
 
 # Downloading a Jar via a script
 
+curl -X POST -u {bpmuser}:{bpmpass} http://{bpm host and port}/business-central/maven2/{groupId with slashes}/{artifactId}/{version}/{jar filename}
+
 ```
 curl -X GET \
  -u 'testuser':'RedHat1!' \
@@ -37,6 +45,8 @@ curl -X GET \
 ```
 
 # Deploying a KJar
+
+curl -X POST -u {bpmuser}:{bpmpass} http://{bpm host and port}/business-central/rest/deployment/{groupId}:{artifactId}:{version}/deploy
 
 ```
 curl -X POST \
@@ -46,6 +56,8 @@ curl -X POST \
 
 # Undeploying a KJar
 
+curl -X POST -u {bpmuser}:{bpmpass} http://{bpm host and port}/business-central/rest/deployment/{groupId}:{artifactId}:{version}/undeploy
+
 ```
 curl -X POST \
  -u 'testuser':'RedHat1!' \
@@ -54,6 +66,8 @@ curl -X POST \
 
 # Deactivating a KJar
 
+curl -X POST -u {bpmuser}:{bpmpass} http://{bpm host and port}/business-central/rest/deployment/{groupId}:{artifactId}:{version}/deactivate
+
 ```
 curl -X POST \
  -u 'testuser':'RedHat1!' \
@@ -61,6 +75,8 @@ curl -X POST \
 ```
 
 # Activating a KJar
+
+curl -X POST -u {bpmuser}:{bpmpass} http://{bpm host and port}/business-central/rest/deployment/{groupId}:{artifactId}:{version}/activate
 
 ```
 curl -X POST \
